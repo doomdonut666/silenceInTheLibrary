@@ -80,7 +80,24 @@ const removeBook = (library, bookName) => {
     });
 };
 
+const getGenresReport = (library) => {
+  const result = {};
+
+  library
+    .map((book) => {
+      if (result[book.genre] !== undefined) {
+        result[book.genre] += 1;
+        return 0;
+      }
+
+      result[book.genre] = 1;
+      return 0;
+    });
+
+  return result;
+};
+
 export {
   createLibrary, addBook, findBooksByAuthor, filterBooksByGenre, filterByYear, averagePagesReport,
-  removeBook,
+  removeBook, getGenresReport,
 };
