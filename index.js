@@ -51,7 +51,7 @@ const filterByYear = (library) => {
         return 0;
       }
 
-      return firstYear > secondYear ? 1 : -1;
+      return firstYear > secondYear ? -1 : 1;
     });
 
   return result;
@@ -97,6 +97,12 @@ const getGenresReport = (library) => {
   return result;
 };
 
+const myLibrary = createLibrary();
+addBook(myLibrary, "Хоббит", "Дж. Р. Р. Толкиен", 1937, "Фэнтези", 310);
+addBook(myLibrary, "Гарри Поттер и философский камень", "Дж. К. Роулинг", 1997, "Фэнтези", 223);
+addBook(myLibrary, "1984", "Джордж Оруэлл", 1949, "Антиутопия", 328);
+
+console.log(filterByYear(myLibrary));
 export {
   createLibrary, addBook, findBooksByAuthor, filterBooksByGenre, filterByYear, averagePagesReport,
   removeBook, getGenresReport,
